@@ -11,6 +11,7 @@ bundle
 chmod +x app.rb
 rspec
 ./app.rb
+```
 
 Enjoy!
 
