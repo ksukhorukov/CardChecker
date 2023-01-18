@@ -26,17 +26,32 @@ class Card
 
   def valid?
     summ = 0
-    @card.split('').map(&:to_i).reverse.each_with_index do |n, i|
+
+    reversed_card_number.each_with_index do |n, i| 
       if (i + 1).even?
         n *= 2
-        n = n.to_s.split('').map(&:to_i).reduce(&:+) if n > 9
-      end
-      summ += n
-    end
-    summ % 10 == 0
+        n = sum_of_digits n if n > 9
+     end  
+    
+      summ += n  
+    end 
+
+    is_divisible_by_ten? summ
   end
 
   private 
+
+  def sum_of_digits(str)
+    str.to_s.split('').map(&:to_i).reduce(&:+)
+  end 
+
+  def is_divisible_by_ten? n 
+    n % 10 == 0
+  end  
+
+  def reversed_card_number
+    card.split('').map(&:to_i).reverse
+  end 
 
   def validation 
     raise ERROR_INVALID_CARD_FORMAT unless card_number_consists_of_digits?
