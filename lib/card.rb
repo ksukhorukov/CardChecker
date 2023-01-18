@@ -1,30 +1,27 @@
 #!/usr/bin/env ruby
 
 class Card
-  attr_reader :card
+  attr_reader :card, :card_length
 
   ERROR_INVALID_CARD_FORMAT = 'Card number must consists of digits'
   ERROR_INVALID_CARD_LENGTH = 'Length of a card must be between 13 and 16'
 
   def initialize(number)
-    @card = number
+    @card, @card_length = number, number&.length
 
     validation
   end
 
   def type
-    card_length = @card.length
-    if card_length == 15 and (@card[0..1] == '34' or @card[0..1] == '37')
-      'AMEX'
-    elsif card_length == 16 and @card[0..3] == '6011'
-      'Discover'
-    elsif card_length == 16 and (@card[0..1].to_i >= 51 and @card[0..1].to_i <= 55)
-      'MasterCard'
-    elsif [13, 16].include?(card_length) and @card[0] == '4'
-      'Visa'
-    else
-      'Unknown'
-    end
+    return 'AMEX' if card_length == 15 and (card[0..1] == '34' or card[0..1] == '37')
+     
+    return 'Discover' if card_length == 16 and card[0..3] == '6011'
+      
+    return 'MasterCard' if card_length == 16 and (card[0..1].to_i >= 51 and card[0..1].to_i <= 55)
+      
+    return 'Visa' if [13, 16].include?(card_length) and card[0] == '4'
+      
+    'Unknown'
   end
 
   def valid?
@@ -51,6 +48,6 @@ class Card
   end 
 
   def card_length_acceptable?
-    card.length < 13 or card.length > 16
+    card_length < 13 or card_length > 16
   end 
 end
