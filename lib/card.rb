@@ -13,13 +13,13 @@ class Card
   end
 
   def type
-    return 'AMEX' if card_length == 15 and (card[0..1] == '34' or card[0..1] == '37')
+    return 'AMEX' if card_length_is 15 and (prefix_of_card_equal? '34' or prefix_of_card_equal? '37')
      
-    return 'Discover' if card_length == 16 and card[0..3] == '6011'
+    return 'Discover' if card_length_is 16 and prefix_of_card_equal? '6011'
       
-    return 'MasterCard' if card_length == 16 and (card[0..1].to_i >= 51 and card[0..1].to_i <= 55)
+    return 'MasterCard' if card_length_is 16 and (first_two_card_digits >= 51 and first_two_card_digits <= 55)
       
-    return 'Visa' if [13, 16].include?(card_length) and card[0] == '4'
+    return 'Visa' if card_length_is_or 13, 16 and prefix_of_card_equal? '4'
       
     'Unknown'
   end
@@ -49,5 +49,21 @@ class Card
 
   def card_length_acceptable?
     card_length < 13 or card_length > 16
+  end 
+
+  def prefix_of_card_equal?(str)
+    card[0..str.length - 1] == str&.to_s
+  end 
+
+  def first_two_card_digits
+    card[0..1].to_i
+  end 
+
+  def card_length_is(n)
+    card_length == n
+  end 
+
+  def card_length_is_or(n, m)
+    [n, m].include?(card_length)
   end 
 end
