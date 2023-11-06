@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require './lib/card'
+require './lib/cards'
 
 while(true) do 
   print "Card number: "
   number = gets.strip.gsub(/\s+/, '')
-  card = Card.new(number)
+  card = Cards.new(number)
   if card.valid?
     puts "Valid card. Type: #{card.type}"
   else
