@@ -1,19 +1,10 @@
 class Cards
   module Types
-    #     return 'AMEX' if is_amex?
-
-    # return 'Discover' if is_discover?
-
-    # return 'MasterCard' if is_mastercard?
-
-    # return 'Visa' if is_visa?
-
-    # 'Unknown'
-
     AMEX_TYPE = 'AMEX'
     DISCOVER_TYPE = 'Discover'
     MASTERCARD_TYPE = 'MasterCard'
     VISA_TYPE = 'Visa'
+    SBER_TYPE = 'Sber'
     UNKNOWN_TYPE = 'Unknown'
 
     def is_amex?
@@ -30,6 +21,10 @@ class Cards
 
     def is_visa?
       card_length_is_or 13, 16 and prefix_of_card_equal? '4'
+    end
+
+    def is_sber?
+      card_length_is_or 16, 16 and prefix_of_card_equal? '2202'
     end
   end
 end

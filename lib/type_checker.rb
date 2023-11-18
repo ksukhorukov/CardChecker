@@ -4,6 +4,7 @@ class Cards
     DISCOVER_TYPE = 'Discover'
     MASTERCARD_TYPE = 'MasterCard'
     VISA_TYPE = 'Visa'
+    SBER_TYPE = 'Sber'
     UNKNOWN_TYPE = 'Unknown'
 
     def type
@@ -14,6 +15,8 @@ class Cards
       return MASTERCARD_TYPE if is_mastercard?
 
       return VISA_TYPE if is_visa?
+
+      return SBER_TYPE if is_sber?
 
       UNKNOWN_TYPE
     end
@@ -32,6 +35,10 @@ class Cards
 
     def is_visa?
       card_length_is_or 13, 16 and prefix_of_card_equal? '4'
+    end
+
+    def is_sber?
+      card_length_is_or 16 and prefix_of_card_equal? '2202'
     end
   end
 end

@@ -20,7 +20,7 @@ class Cards
       card_length == n
     end
 
-    def card_length_is_or(n, m)
+    def card_length_is_or(n, m = 16)
       [n, m].include?(card_length)
     end
 
