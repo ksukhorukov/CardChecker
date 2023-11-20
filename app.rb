@@ -3,7 +3,12 @@
 require './lib/cards'
 
 def usage
-  puts "\nUsage example:\n\n\t#{$0} 5425233430109903\n\tValid card. Type: MasterCard\n\n" if ARGV.count != 1 
+  if ARGV.count != 1 
+    puts "
+      \nUsage example:\n\n\t#{$0} 5425233430109903\n
+      \tValid card. Type: MasterCard\n
+      ".colorize(color: :green, mode: :bold) 
+    end
   exit
 end 
 
@@ -11,8 +16,12 @@ usage if ARGV.count != 1
 
 card = Cards.new(ARGV[0].strip.gsub(/\s+/, ''))
 
-if card.valid?
-  puts "Valid card. Type: #{card.type}"
-else
-  puts "Invalid card."
+begin 
+  if card.valid?
+    puts "Valid card. Type: #{card.type}".colorize(color: :green, mode: :bold) 
+  else
+    puts "Invalid card".colorize(color: :red, mode: :bold) 
+  end
+rescue => e
+  puts "Invalid card".colorize(color: :red, mode: :bold) 
 end

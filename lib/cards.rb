@@ -3,6 +3,8 @@ require_relative './type_checker'
 require_relative './cards_validator'
 require_relative './format_validation'
 
+require 'colorize'
+
 class Cards
   include Helpers
   include TypeChecker
