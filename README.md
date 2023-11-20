@@ -13,14 +13,30 @@ Validates credit cards according to Luhn algorithm and determines it's type
 * AlfaBank
 * MIR
 
-### Usage
+### Install
 
 ```
 gem install bundler
 bundle
 chmod +x app.rb
+```
+
+### Test
+
+```
 rspec
-./app.rb
+```
+
+### Usage
+
+```
+% ./app.rb
+
+Usage example:
+
+	./app.rb 5425233430109903
+	Valid card. Type: MasterCard
+
 ```
 
 Enjoy!
