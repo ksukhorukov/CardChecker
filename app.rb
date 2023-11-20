@@ -3,18 +3,22 @@
 require './lib/cards'
 
 def usage
-  if ARGV.count != 1 
-    puts "
-      \nUsage example:\n\n\t#{$0} 5425233430109903\n
-      \tValid card. Type: MasterCard\n
-      ".colorize(color: :green, mode: :bold) 
-    end
+  puts "
+    \nUsage example:\n\n\t#{$0} 5425233430109903\n
+    \tValid card. Type: MasterCard\n
+    ".colorize(color: :green, mode: :bold) 
   exit
 end 
 
 usage if ARGV.count != 1
 
-card = Cards.new(ARGV[0].strip.gsub(/\s+/, ''))
+card_number_striped = ARGV[0].strip
+
+usage if card_number_striped.size != 16
+
+card_number = card_number_striped.gsub(/\s+/, '')
+
+card = Cards.new(card_number)
 
 begin 
   if card.valid?
