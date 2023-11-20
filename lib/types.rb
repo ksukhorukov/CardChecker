@@ -5,6 +5,7 @@ class Cards
     MASTERCARD_TYPE = 'MasterCard'
     VISA_TYPE = 'Visa'
     SBER_TYPE = 'Sber'
+    MIR_TYPE = 'Mir'
     UNKNOWN_TYPE = 'Unknown'
 
     def is_amex?
@@ -24,7 +25,12 @@ class Cards
     end
 
     def is_sber?
-      card_length_is_or 16, 16 and prefix_of_card_equal? '2202'
+      card_length_is_or 16 and prefix_of_card_equal? '2202'
+    end
+
+    def is_mir?
+      byebug
+      card_length_is_or 16 and is_mir?
     end
   end
 end

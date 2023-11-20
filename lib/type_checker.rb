@@ -1,3 +1,5 @@
+require 'pry'
+
 class Cards
   module TypeChecker
     AMEX_TYPE = 'AMEX'
@@ -5,7 +7,11 @@ class Cards
     MASTERCARD_TYPE = 'MasterCard'
     VISA_TYPE = 'Visa'
     SBER_TYPE = 'Sber'
+    ALFA_TYPE = 'Alfa'
+    MIR_TYPE = 'Mir'
     UNKNOWN_TYPE = 'Unknown'
+
+    ALL_TYPES = %w[amex discover mastercard visa sber]
 
     def type
       return AMEX_TYPE if is_amex?
@@ -17,6 +23,10 @@ class Cards
       return VISA_TYPE if is_visa?
 
       return SBER_TYPE if is_sber?
+
+      return ALFA_TYPE if is_alfa?
+
+      return MIR_TYPE if is_mir?
 
       UNKNOWN_TYPE
     end
@@ -40,5 +50,21 @@ class Cards
     def is_sber?
       card_length_is_or 16 and prefix_of_card_equal? '2202'
     end
+
+    def is_alfa?
+      card_length_is_or 16 and prefix_of_card_equal? '4584'
+    end
+
+    def is_unknown?
+      ::Cards::TypeChecker::ALL_TYPES.map { |type| send(form_method_type(type)) }.reduce(&:|) != true 
+    end 
+
+    def is_mir?
+      return true if is_unknown? and prefix_of_card_equal? '2200'
+    end
+
+    def form_method_type(method_type)
+      "is_#{method_type}?"
+    end 
   end
 end

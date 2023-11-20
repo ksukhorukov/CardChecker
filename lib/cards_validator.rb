@@ -1,6 +1,10 @@
+require 'pry'
+
 class Cards
   module CardsValidator
     def valid?
+      binding.pry if card == '2200111111111111'
+
       summ = 0
 
       reversed_card_number.each_with_index do |n, i|
