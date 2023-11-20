@@ -3,6 +3,16 @@
 
 Validates credit cards according to Luhn algorithm and determines it's type
 
+## Supported Types
+
+* Visa
+* Masteracrd
+* AMEX
+* Discover
+* SberBank
+* AlfaBank
+* MIR
+
 ### Usage
 
 ```
