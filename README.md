@@ -1,7 +1,11 @@
 # Card Checker
 ## Intro
 
-Validates credit cards according to Luhn algorithm and determines it's type
+Validates credit cards according to Luhn algorithm and determines the name of the bank that has issued the card
+
+### Requirements
+
+```Ruby 3.0.0 or higher```
 
 ## Supported Types
 
@@ -41,9 +45,5 @@ Usage example:
 ```
 
 Enjoy!
-
-### Ruby Version
-
-```3.0.0 or higher```
 
 ### [EOF]
