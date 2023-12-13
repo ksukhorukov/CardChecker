@@ -9,7 +9,10 @@ class Cards
     SBER_TYPE = 'Sber'
     ALFA_TYPE = 'Alfa'
     MIR_TYPE = 'Mir'
+    RAIFAIZEN_TYPE = 'Raifaizen'
     UNKNOWN_TYPE = 'Unknown'
+
+    RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
 
     ALL_TYPES = %w[amex discover mastercard visa sber]
 
@@ -28,7 +31,17 @@ class Cards
 
       return MIR_TYPE if is_mir?
 
+      return RAIFAIZEN_TYPE if is_raifaizen?
+
       UNKNOWN_TYPE
+    end
+
+    def is_raifaizen?
+      card_length_is 16 and raifizen_prefix?
+    end
+
+    def raifizen_prefix?
+      RAIFAIZEN_TYPE_PREFIXES.map { |prefix| prefix_of_card_equal? prefix }.reduce(:or)  
     end
 
     def is_amex?
@@ -60,7 +73,7 @@ class Cards
     end 
 
     def is_mir?
-      return true if is_unknown? and prefix_of_card_equal? '2200'
+      card_length_is_or 16 and prefix_of_card_equal? '220015'
     end
 
     def form_method_type(method_type)

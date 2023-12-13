@@ -6,7 +6,10 @@ class Cards
     VISA_TYPE = 'Visa'
     SBER_TYPE = 'Sber'
     MIR_TYPE = 'Mir'
+    RAIFAIZEN_TYPE = 'Raifaizen'
     UNKNOWN_TYPE = 'Unknown'
+    
+    RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
 
     def is_amex?
       card_length_is 15 and (prefix_of_card_equal? '34' or prefix_of_card_equal? '37')
@@ -29,8 +32,15 @@ class Cards
     end
 
     def is_mir?
-      byebug
-      card_length_is_or 16 and is_mir?
+      card_length_is_or 16 and prefix_of_card_equal? '220015'
+    end
+
+    def is_raifaizen?
+      card_length_is 16 and raifizen_prefix?
+    end
+
+    def raifizen_prefix?
+      RAIFAIZEN_TYPE_PREFIXES.map { |prefix| prefix_of_card_equal? prefix }.reduce(:or)  
     end
   end
 end
