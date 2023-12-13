@@ -12,6 +12,7 @@ Validates credit cards according to Luhn algorithm and determines it's type
 * SberBank
 * AlfaBank
 * MIR
+* Raifaizen 
 
 ### Install
 
