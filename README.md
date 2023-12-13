@@ -5,7 +5,7 @@ Validates credit cards according to Luhn algorithm and determines the name of th
 
 ### Requirements
 
-```Ruby 3.0.0 or higher```
+Ruby 3.0.0 or higher
 
 ## Supported Types
 
