@@ -7,7 +7,7 @@ Validates credit cards according to Luhn algorithm and determines the name of th
 
 Ruby 3.0.0 or higher
 
-## Supported Types
+## Supported Types and Banks
 
 * Visa
 * Masteracrd
