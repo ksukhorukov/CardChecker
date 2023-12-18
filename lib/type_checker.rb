@@ -30,6 +30,8 @@ class Cards
 
       return RAIFAIZEN_TYPE if is_raifaizen?
 
+      return KASPI_TYPE if is_kaspi?
+
       return VISA_TYPE if is_visa?
 
       return MASTERCARD_TYPE if is_mastercard?

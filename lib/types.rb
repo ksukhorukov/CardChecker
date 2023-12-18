@@ -7,7 +7,7 @@ class Cards
     SBER_TYPE = 'Sber'
     MIR_TYPE = 'Mir'
     RAIFAIZEN_TYPE = 'Raifaizen'
-    KASPI_TYPE = 'Kaspi Bank'
+    KASPI_TYPE = 'Kaspi'
     UNKNOWN_TYPE = 'Unknown'
     
     RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]

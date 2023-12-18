@@ -29,7 +29,7 @@ chmod +x app.rb
 ### Test
 
 ```
-rspec
+bundle exec rspec
 ```
 
 ### Usage
