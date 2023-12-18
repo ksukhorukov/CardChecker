@@ -17,6 +17,7 @@ Ruby 3.0.0 or higher
 * AlfaBank
 * MIR
 * Raifaizen 
+* Kaspi
 
 ### Install
 
