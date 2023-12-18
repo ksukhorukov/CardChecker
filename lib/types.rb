@@ -7,6 +7,7 @@ class Cards
     SBER_TYPE = 'Sber'
     MIR_TYPE = 'Mir'
     RAIFAIZEN_TYPE = 'Raifaizen'
+    KASPI_TYPE = 'Kaspi Bank'
     UNKNOWN_TYPE = 'Unknown'
     
     RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
@@ -42,5 +43,9 @@ class Cards
     def raifizen_prefix?
       RAIFAIZEN_TYPE_PREFIXES.map { |prefix| prefix_of_card_equal? prefix }.reduce(:or)  
     end
+
+    def kaspi?
+      card_length_is_or 16 and prefix_of_card_equal? '440043'
+    end 
   end
 end

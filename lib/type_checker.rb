@@ -10,20 +10,17 @@ class Cards
     ALFA_TYPE = 'Alfa'
     MIR_TYPE = 'Mir'
     RAIFAIZEN_TYPE = 'Raifaizen'
+    KASPI_TYPE = 'Kaspi'
     UNKNOWN_TYPE = 'Unknown'
 
     RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
 
-    ALL_TYPES = %w[amex discover mastercard visa sber]
+    ALL_TYPES = %w[amex discover mastercard visa sber alfa mir raifaizen kaspi unknown]
 
     def type
       return AMEX_TYPE if is_amex?
 
       return DISCOVER_TYPE if is_discover?
-
-      return MASTERCARD_TYPE if is_mastercard?
-
-      return VISA_TYPE if is_visa?
 
       return SBER_TYPE if is_sber?
 
@@ -32,6 +29,10 @@ class Cards
       return MIR_TYPE if is_mir?
 
       return RAIFAIZEN_TYPE if is_raifaizen?
+
+      return VISA_TYPE if is_visa?
+
+      return MASTERCARD_TYPE if is_mastercard?
 
       UNKNOWN_TYPE
     end
@@ -74,6 +75,10 @@ class Cards
 
     def is_mir?
       card_length_is_or 16 and prefix_of_card_equal? '220015'
+    end
+
+    def is_kaspi?
+      card_length_is_or 16 and prefix_of_card_equal? '440043'
     end
 
     def form_method_type(method_type)
