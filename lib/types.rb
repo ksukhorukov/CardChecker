@@ -1,17 +1,9 @@
-class Cards
-  module Types
-    AMEX_TYPE = 'AMEX'
-    DISCOVER_TYPE = 'Discover'
-    MASTERCARD_TYPE = 'MasterCard'
-    VISA_TYPE = 'Visa'
-    SBER_TYPE = 'Sber'
-    MIR_TYPE = 'Mir'
-    RAIFAIZEN_TYPE = 'Raifaizen'
-    KASPI_TYPE = 'Kaspi'
-    UNKNOWN_TYPE = 'Unknown'
-    
-    RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
+require_relative 'bank_types'
 
+class Cards
+  include BankTypes
+  module Types
+ 
     def is_amex?
       card_length_is 15 and (prefix_of_card_equal? '34' or prefix_of_card_equal? '37')
     end

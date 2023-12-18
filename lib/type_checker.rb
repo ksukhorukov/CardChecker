@@ -1,42 +1,30 @@
-require 'pry'
+require_relative 'bank_types'
 
 class Cards
+  include BankTypes
+
   module TypeChecker
-    AMEX_TYPE = 'AMEX'
-    DISCOVER_TYPE = 'Discover'
-    MASTERCARD_TYPE = 'MasterCard'
-    VISA_TYPE = 'Visa'
-    SBER_TYPE = 'Sber'
-    ALFA_TYPE = 'Alfa'
-    MIR_TYPE = 'Mir'
-    RAIFAIZEN_TYPE = 'Raifaizen'
-    KASPI_TYPE = 'Kaspi'
-    UNKNOWN_TYPE = 'Unknown'
-
-    RAIFAIZEN_TYPE_PREFIXES = [ '220030' ]
-
-    ALL_TYPES = %w[amex discover mastercard visa sber alfa mir raifaizen kaspi unknown]
 
     def type
-      return AMEX_TYPE if is_amex?
+      return ::BankTypes::AMEX_TYPE if is_amex?
 
-      return DISCOVER_TYPE if is_discover?
+      return ::BankTypes::DISCOVER_TYPE if is_discover?
 
-      return SBER_TYPE if is_sber?
+      return ::BankTypes::SBER_TYPE if is_sber?
 
-      return ALFA_TYPE if is_alfa?
+      return ::BankTypes::ALFA_TYPE if is_alfa?
 
-      return MIR_TYPE if is_mir?
+      return ::BankTypes::MIR_TYPE if is_mir?
 
-      return RAIFAIZEN_TYPE if is_raifaizen?
+      return ::BankTypes::RAIFAIZEN_TYPE if is_raifaizen?
 
-      return KASPI_TYPE if is_kaspi?
+      return ::BankTypes::KASPI_TYPE if is_kaspi?
 
-      return VISA_TYPE if is_visa?
+      return ::BankTypes::VISA_TYPE if is_visa?
 
-      return MASTERCARD_TYPE if is_mastercard?
+      return ::BankTypes::MASTERCARD_TYPE if is_mastercard?
 
-      UNKNOWN_TYPE
+      ::BankTypes::UNKNOWN_TYPE
     end
 
     def is_raifaizen?
@@ -44,7 +32,7 @@ class Cards
     end
 
     def raifizen_prefix?
-      RAIFAIZEN_TYPE_PREFIXES.map { |prefix| prefix_of_card_equal? prefix }.reduce(:or)  
+      ::BankTypes::RAIFAIZEN_TYPE_PREFIXES.map { |prefix| prefix_of_card_equal? prefix }.reduce(:or)  
     end
 
     def is_amex?
