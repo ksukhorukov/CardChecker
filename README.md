@@ -18,6 +18,7 @@ Ruby 3.0.0 or higher
 * MIR
 * Raifaizen 
 * Kaspi
+* Tinkoff
 
 ### Install
 

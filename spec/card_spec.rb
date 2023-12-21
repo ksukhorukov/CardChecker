@@ -28,6 +28,7 @@ describe "Cards" do
     expect(Cards.new('2200151111111111').type).to eq 'Mir'
     expect(Cards.new('2200300518610348').type).to eq 'Raifaizen'
     expect(Cards.new('4400430000000000').type).to eq 'Kaspi'
+    expect(Cards.new('2200700976523216').type).to eq 'Tinkoff'
     expect(Cards.new('30000000000004').type).to eq 'Unknown'
   end
 end

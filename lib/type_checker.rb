@@ -24,6 +24,10 @@ class Cards
 
       return ::BankTypes::MASTERCARD_TYPE if is_mastercard?
 
+      return ::BankTypes::TINKOFF_TYPE if is_tinkoff?
+
+
+
       ::BankTypes::UNKNOWN_TYPE
     end
 
@@ -70,6 +74,10 @@ class Cards
     def is_kaspi?
       card_length_is_or 16 and prefix_of_card_equal? '440043'
     end
+
+    def is_tinkoff?
+      card_length_is_or 16 and prefix_of_card_equal? '220070'
+    end 
 
     def form_method_type(method_type)
       "is_#{method_type}?"
