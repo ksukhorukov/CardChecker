@@ -11,11 +11,11 @@ Ruby 3.0.0 or higher
 
 * Visa
 * Masteracrd
+* MIR
 * AMEX
 * Discover
 * SberBank
 * AlfaBank
-* MIR
 * Raifaizen 
 * Kaspi
 * Tinkoff
