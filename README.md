@@ -3,7 +3,7 @@
 
 Validates credit cards according to Luhn algorithm and determines the name of the bank that has issued the card
 
-### Requirements
+## Requirements
 
 Ruby 3.0.0 or higher
 
@@ -20,7 +20,7 @@ Ruby 3.0.0 or higher
 * Kaspi
 * Tinkoff
 
-### Install
+## Install
 
 ```
 gem install bundler
@@ -28,13 +28,13 @@ bundle
 chmod +x app.rb
 ```
 
-### Test
+## Test
 
 ```
 bundle exec rspec
 ```
 
-### Usage
+## Usage
 
 ```
 % ./app.rb
@@ -48,4 +48,4 @@ Usage example:
 
 Enjoy!
 
-### [EOF]
+## [EOF]
