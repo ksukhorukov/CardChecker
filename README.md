@@ -3,7 +3,7 @@
 
 Validates credit cards according to Luhn algorithm and determines the name of the bank that has issued the card
 
-## Requirements
+## REQUIREMENTS
 
 Ruby 3.*
 
