@@ -1,5 +1,5 @@
-# Card Checker
-## Intro
+# CARD CHECKER
+## INTRO
 
 Validates credit cards according to Luhn algorithm and determines the name of the bank that has issued the card
 
@@ -21,7 +21,7 @@ Ruby 3.*
 * Discover
 
 
-## Install
+## INSTALLATION
 
 ```
 gem install bundler
@@ -29,13 +29,13 @@ bundle
 chmod +x app.rb
 ```
 
-## Test
+## TESTING
 
 ```
 bundle exec rspec
 ```
 
-## Usage
+## USAGE
 
 ```
 % ./app.rb
