@@ -1,7 +1,9 @@
 # CARD CHECKER
 ## INTRO
 
-Performs a debit or a credit card number validitation in accordance with the Luhn algorithm. Also if it's possible, determines the name of the bank that has been issued the card.
+Performs a debit or a credit card number validitation in accordance with the [https://en.m.wikipedia.org/wiki/Luhn_algorithm](Luhn algorithm).
+
+Also, if it is possible, determines the name of the bank that has been issued the card.
 
 ## REQUIREMENTS
 
